@@ -1,42 +1,41 @@
 # Created by pyp2rpm-3.3.2
-%global pypi_name snmpsim
+%global pypi_name pysnmp
 
 Name:           python-%{pypi_name}
-Version:        0.4.7
+Version:        4.4.12
 Release:        1%{?dist}
-Summary:        SNMP Agents simulator
+Summary:        SNMP library for Python
 
 License:        BSD
-URL:            https://github.com/etingof/snmpsim
-Source0:        https://files.pythonhosted.org/packages/source/s/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+URL:            https://github.com/etingof/pysnmp
+Source0:        https://files.pythonhosted.org/packages/source/p/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
- 
-BuildRequires:  python3-devel
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3dist(sphinx)
+
+BuildRequires:  python2-devel
+BuildRequires:  python2dist(setuptools)
+BuildRequires:  python2dist(sphinx)
 
 %description
-SNMP Simulator is a tool that acts as multitude of SNMP Agents built into real
-physical devices, from SNMP Manager's point of view. Simulator builds and uses
-a database of physical devices' SNMP footprints to respond like their original
-counterparts do.
+SNMP v1/v2c/v3 engine and Standard Applications suite written in pure-Python.
+Supports Manager/Agent/Proxy roles, Manager/Agent-side MIBs, asynchronous
+operation and multiple network transports.
 
-%package -n     python3-%{pypi_name}
+%package -n     python2-%{pypi_name}
 Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
- 
-Requires:       python3dist(pysnmp) < 5.0.0
-Requires:       python3dist(pysnmp) >= 4.4.3
-%description -n python3-%{pypi_name}
-SNMP Simulator is a tool that acts as multitude of SNMP Agents built into real
-physical devices, from SNMP Manager's point of view. Simulator builds and uses
-a database of physical devices' SNMP footprints to respond like their original
-counterparts do.
+%{?python_provide:%python_provide python2-%{pypi_name}}
+
+Requires:       python2dist(pyasn1) >= 0.2.3
+Requires:       python2dist(pycryptodomex)
+Requires:       python2dist(pysmi)
+%description -n python2-%{pypi_name}
+SNMP v1/v2c/v3 engine and Standard Applications suite written in pure-Python.
+Supports Manager/Agent/Proxy roles, Manager/Agent-side MIBs, asynchronous
+operation and multiple network transports.
 
 %package -n python-%{pypi_name}-doc
-Summary:        snmpsim documentation
+Summary:        pysnmp documentation
 %description -n python-%{pypi_name}-doc
-Documentation for snmpsim
+Documentation for pysnmp
 
 %prep
 %autosetup -n %{pypi_name}-%{version}
@@ -44,33 +43,25 @@ Documentation for snmpsim
 rm -rf %{pypi_name}.egg-info
 
 %build
-%py3_build
+%py2_build
 # generate html docs 
-PYTHONPATH=${PWD} sphinx-build-3 docs/source html
+PYTHONPATH=${PWD} sphinx-build-2 docs/source html
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 %install
-%py3_install
-exit 0
+%py2_install
 
-%files -n python3-%{pypi_name}
-%license LICENSE.txt docs/source/license.rst
-%{python3_sitelib}/snmpsim/commands/mib2rec.py
-%{python3_sitelib}/snmpsim/commands/pcap2rec.py
-%{python3_sitelib}/snmpsim/commands/rec2rec.py
-%{python3_sitelib}/snmpsim/commands/responder.py
-%{python3_sitelib}/snmpsim/commands/responder_lite.py
-%{python3_sitelib}/snmpsim/commands/cmd2rec.py
-%{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/snmpsim-1.0.0-py3.7.egg-info
-/usr/snmpsim/data
-/usr/snmpsim/variation
-/usr/bin
+%files -n python2-%{pypi_name}
+%license LICENSE.rst docs/source/license.rst
+%doc README.md
+%{python2_sitelib}/%{pypi_name}
+%{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+
 %files -n python-%{pypi_name}-doc
 %doc html
-%license LICENSE.txt docs/source/license.rst
+%license LICENSE.rst docs/source/license.rst
 
 %changelog
-* Mon Oct 05 2020 bsawa - 0.4.7-1
+* Thu Oct 03 2019 Chris Tyler <ctyler.fedora@gmail.com> - 4.4.12-1
 - Initial package.
