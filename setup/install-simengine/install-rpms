@@ -45,4 +45,4 @@ cd "${SE_DIR}/rpm/specfiles"
 ./buildall
 
 echo "sudo is required to install SimEngine RPMs"
-sudo dnf install "${RPMS_DIR}"/**/simengine*-${simengine_latest_version}-*.rpm
+sudo dnf install "${RPMS_DIR}"/**/simengine*.rpm
