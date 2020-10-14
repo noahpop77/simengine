@@ -56,20 +56,18 @@ exit 0
 
 %files -n python3-%{pypi_name}
 %license LICENSE.txt docs/source/license.rst
-%{python3_sitelib}/snmpsim/commands/mib2rec.py
-%{python3_sitelib}/snmpsim/commands/pcap2rec.py
-%{python3_sitelib}/snmpsim/commands/rec2rec.py
-%{python3_sitelib}/snmpsim/commands/responder.py
-%{python3_sitelib}/snmpsim/commands/responder_lite.py
-%{python3_sitelib}/snmpsim/commands/cmd2rec.py
-%{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/snmpsim-1.0.0-py3.7.egg-info
+%{python3_sitelib}/snmpsim-0.4.7-py3.7.egg-info/
+%{python3_sitelib}/snmpsim/record/
+%{python3_sitelib}/snmpsim/grammar/
+%{python3_sitelib}/snmpsim/__pycache__/
+%{python3_sitelib}/snmpsim/
 /usr/snmpsim/data
 /usr/snmpsim/variation
 /usr/bin
 %files -n python-%{pypi_name}-doc
 %doc html
 %license LICENSE.txt docs/source/license.rst
+
 
 %changelog
 * Mon Oct 05 2020 bsawa - 0.4.7-1
