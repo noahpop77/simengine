@@ -56,14 +56,10 @@ exit 0
 
 %files -n python3-%{pypi_name}
 %license LICENSE.txt docs/source/license.rst
-%{python3_sitelib}/snmpsim-0.4.7-py3.7.egg-info/
-%{python3_sitelib}/snmpsim/record/
-%{python3_sitelib}/snmpsim/grammar/
-%{python3_sitelib}/snmpsim/__pycache__/
-%{python3_sitelib}/snmpsim/
-/usr/snmpsim/data
-/usr/snmpsim/variation
-/usr/bin
+/usr/lib/python3.7/site-packages/snmpsim
+/usr/snmpsim
+/usr/lib/python3.7/site-packages/snmpsim-0.4.7-py3.7.egg-info/
+/usr/bin/
 %files -n python-%{pypi_name}-doc
 %doc html
 %license LICENSE.txt docs/source/license.rst
