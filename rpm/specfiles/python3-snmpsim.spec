@@ -42,6 +42,7 @@ Documentation for snmpsim
 %autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
+echo "%{_prefix}"
 
 %build
 %py3_build
@@ -51,20 +52,22 @@ PYTHONPATH=${PWD} sphinx-build-3 docs/source html
 rm -rf html/.{doctrees,buildinfo}
 
 %install
-%py3_install
+%{__python3} %{py_setup} %{?py_setup_args} install --prefix=/usr -O1 --skip-build --root %{buildroot} %{?*}
 exit 0
 
 %files -n python3-%{pypi_name}
 %license LICENSE.txt docs/source/license.rst
-/usr/lib/python3.7/site-packages/snmpsim
 /usr/snmpsim
-/usr/lib/python3.7/site-packages/snmpsim-0.4.7-py3.7.egg-info/
-/usr/bin/
+/usr/lib
+%{_bindir}
 %files -n python-%{pypi_name}-doc
 %doc html
 %license LICENSE.txt docs/source/license.rst
 
 
 %changelog
+* Mon Oct 19 2020 bsawa - 0.4.7-1
+- File path changes and prefix to install alteration
+
 * Mon Oct 05 2020 bsawa - 0.4.7-1
 - Initial package.
