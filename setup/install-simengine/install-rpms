@@ -26,21 +26,6 @@ fi
 
 cd "${SE_DIR}"
 
-# ensure the simengine repo has the latest updates
-# don't prune because we don't want to remove local copies of remote branches
-# that may be used as backup
-git fetch
-
-simengine_latest_version=$(git \
-    tag \
-    --sort version:refname \
-    | tail -1 \
-)
-
-echo "latest SimEngine version is [${simengine_latest_version}]"
-
-git checkout "tags/${simengine_latest_version}"
-
 cd "${SE_DIR}/rpm/specfiles"
 ./buildall
 
