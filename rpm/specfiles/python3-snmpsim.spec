@@ -58,15 +58,23 @@ exit 0
 %files -n python3-%{pypi_name}
 %license LICENSE.txt docs/source/license.rst
 /usr/snmpsim
-/usr/lib
-%{_bindir}
+/usr/lib/python3.7/site-packages/
+%{_bindir}/datafile.py
+%{_bindir}/mib2dev.py
+%{_bindir}/pcap2dev.py
+%{_bindir}/snmprec.py
+%{_bindir}/snmpsimd.py
 %files -n python-%{pypi_name}-doc
 %doc html
 %license LICENSE.txt docs/source/license.rst
 
 
 %changelog
-* Mon Oct 19 2020 bsawa - 0.4.7-1
+* Wen Oct 21 2020 bsawa - 0.4.7-3
+- Bin directory pulling too many files change
+- Specified needed files
+
+* Mon Oct 19 2020 bsawa - 0.4.7-2
 - File path changes and prefix to install alteration
 
 * Mon Oct 05 2020 bsawa - 0.4.7-1
