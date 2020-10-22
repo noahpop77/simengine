@@ -70,12 +70,5 @@ exit 0
 
 
 %changelog
-* Wen Oct 21 2020 bsawa - 0.4.7-3
-- Bin directory pulling too many files change
-- Specified needed files
-
-* Mon Oct 19 2020 bsawa - 0.4.7-2
-- File path changes and prefix to install alteration
-
 * Mon Oct 05 2020 bsawa - 0.4.7-1
 - Initial package.
