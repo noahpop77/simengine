@@ -8,7 +8,7 @@ License:   GPLv3+
 %global gittag %{version}
 %global selected_libdir /usr/lib64
 
-Source0: https://github.com/Seneca-CDOT/simengine/archive/%{gittag}/simengine-%{version}.tar.gz  
+Source0: https://github.com/noahpop77/simengine/archive/%{gittag}/simengine-%{version}.tar.gz  
 
 BuildRequires: OpenIPMI-devel, gcc
 Requires: simengine-database, python3-libvirt, OpenIPMI, OpenIPMI-lanserv, python3-redis, python2-redis, python3-pysnmp, python3-neo4j-driver, python3-websocket-client
