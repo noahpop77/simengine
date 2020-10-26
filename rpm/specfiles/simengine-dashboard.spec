@@ -2,7 +2,7 @@ Name:      simengine-dashboard
 Version:   3.33
 Release:   1%{?dist}
 Summary:   SimEngine - Dashboard
-URL:       https://github.com/Seneca-CDOT/simengine
+URL:       https://github.com/noahpop77/simengine
 License:   GPLv3+
 
 %global gittag %{version}
