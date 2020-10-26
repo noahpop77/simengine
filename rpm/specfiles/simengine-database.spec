@@ -7,7 +7,7 @@ License:   GPLv3+
 
 %global gittag %{version}
 
-Source0: https://github.com/Seneca-CDOT/simengine/archive/%{gittag}/simengine-%{version}.tar.gz
+Source0: https://github.com/noahpop77/simengine/archive/%{gittag}/simengine-%{version}.tar.gz
 BuildArch: noarch
 
 Requires:  neo4j, cypher-shell, redis, python-neo4j-driver, python-redis
