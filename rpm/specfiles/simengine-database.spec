@@ -2,7 +2,7 @@ Name:      simengine-database
 Version:   3.33
 Release:   1%{?dist}
 Summary:   SimEngine - Databases
-URL:       https://github.com/Seneca-CDOT/simengine
+URL:       https://github.com/noahpop77/simengine
 License:   GPLv3+
 
 %global gittag %{version}
